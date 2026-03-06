@@ -2,72 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="Check Ivan & Vlada's availability for meetings">
     <title>Meeting Calendar - Ivan & Vlada</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container py-5">
+    <!-- Main Container with Bootstrap responsive padding -->
+    <div class="container-fluid px-2 px-sm-3 px-md-4 py-3 py-md-4 py-lg-5">
         <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="text-center mb-5">
-                    <h1 class="display-4 mb-3">Meeting Calendar</h1>
-                    <h2 class="h4 text-muted">Ivan & Vlada</h2>
-                    <p class="lead mt-3">Check our availability for meetings</p>
+            <div class="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8">
+
+                <!-- Header Section -->
+                <div class="text-center mb-3 mb-md-4 mb-lg-5">
+                    <h1 class="display-6 display-md-5 display-lg-4 mb-2 mb-md-3 fw-bold">Meeting Calendar</h1>
+                    <h2 class="h5 h4-md text-muted mb-2">Ivan & Vlada</h2>
+                    <p class="lead fs-6 fs-md-5 mt-2 mt-md-3 mb-0">Check our availability for meetings</p>
                 </div>
 
-                <div class="card shadow-lg">
-                    <div class="card-body p-4">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <button class="btn btn-outline-primary" id="prevMonth">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-                                </svg>
-                            </button>
-                            <h3 class="mb-0" id="currentMonth"></h3>
-                            <button class="btn btn-outline-primary" id="nextMonth">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
-                                </svg>
-                            </button>
+                <!-- Calendar Card -->
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-3 p-md-4">
+
+                        <!-- Month Navigation -->
+                        <div class="row align-items-center mb-4 g-2">
+                            <div class="col-3 col-sm-2">
+                                <button class="btn btn-outline-primary w-100 rounded-3" id="prevMonth" aria-label="Previous month">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="d-none d-sm-inline">
+                                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="d-sm-none">
+                                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="col-6 col-sm-8 text-center">
+                                <h3 class="mb-0 h5 h4-md fw-semibold" id="currentMonth"></h3>
+                            </div>
+                            <div class="col-3 col-sm-2">
+                                <button class="btn btn-outline-primary w-100 rounded-3" id="nextMonth" aria-label="Next month">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" class="d-none d-sm-inline">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="d-sm-none">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
 
-                        <div id="calendar" class="calendar-grid"></div>
+                        <!-- Calendar Grid -->
+                        <div id="calendar"></div>
 
-                        <div class="mt-4">
-                            <h5 class="mb-3">Legend:</h5>
-                            <div class="row">
-                                <div class="col-md-3 mb-2">
-                                    <span class="badge bg-success me-2">✓</span>
-                                    <span>Available</span>
+                        <!-- Legend Section with Bootstrap Grid -->
+                        <div class="mt-4 mt-md-5">
+                            <h5 class="mb-3 fs-6 fw-bold">Legend:</h5>
+                            <div class="row g-3">
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-success me-2 flex-shrink-0" style="padding: 6px 10px; font-size: 0.75rem;">✓</span>
+                                        <span class="fw-semibold" style="font-size: 0.875rem;">Available</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 mb-2">
-                                    <span class="badge bg-danger me-2">✗</span>
-                                    <span>Busy (Both)</span>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-danger me-2 flex-shrink-0" style="padding: 6px 10px; font-size: 0.75rem;">✗</span>
+                                        <span class="fw-semibold" style="font-size: 0.875rem;">Busy (Both)</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 mb-2">
-                                    <span class="badge bg-danger me-2">I</span>
-                                    <span>Ivan Busy</span>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge me-2 flex-shrink-0" style="background-color: #fd7e14; padding: 6px 10px; font-size: 0.75rem;">I</span>
+                                        <span class="fw-semibold" style="font-size: 0.875rem;">Ivan Busy</span>
+                                    </div>
                                 </div>
-                                <div class="col-md-3 mb-2">
-                                    <span class="badge bg-danger me-2">V</span>
-                                    <span>Vlada Busy</span>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge me-2 flex-shrink-0" style="background-color: #d63384; padding: 6px 10px; font-size: 0.75rem;">V</span>
+                                        <span class="fw-semibold" style="font-size: 0.875rem;">Vlada Busy</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-3 mb-2">
-                                    <span class="badge bg-secondary me-2">—</span>
-                                    <span>Past Date</span>
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-secondary me-2 flex-shrink-0" style="padding: 6px 10px; font-size: 0.75rem;">—</span>
+                                        <span class="fw-semibold" style="font-size: 0.875rem;">Past Date</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="text-center mt-4">
-                    <p class="text-muted">
-                        <small>Last updated: <span id="lastUpdate"></span></small>
+                <!-- Last Updated -->
+                <div class="text-center mt-3 mt-md-4">
+                    <p class="text-white-50 mb-0">
+                        <small class="d-block d-sm-inline">Last updated: <span id="lastUpdate"></span></small>
                     </p>
                 </div>
             </div>

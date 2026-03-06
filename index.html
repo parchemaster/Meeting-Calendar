@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Calendar - Ivan & Vlada</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="text-center mb-5">
+                    <h1 class="display-4 mb-3">Meeting Calendar</h1>
+                    <h2 class="h4 text-muted">Ivan & Vlada</h2>
+                    <p class="lead mt-3">Check our availability for meetings</p>
+                </div>
+
+                <div class="card shadow-lg">
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <button class="btn btn-outline-primary" id="prevMonth">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                            </button>
+                            <h3 class="mb-0" id="currentMonth"></h3>
+                            <button class="btn btn-outline-primary" id="nextMonth">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div id="calendar" class="calendar-grid"></div>
+
+                        <div class="mt-4">
+                            <h5 class="mb-3">Legend:</h5>
+                            <div class="row">
+                                <div class="col-md-3 mb-2">
+                                    <span class="badge bg-success me-2">✓</span>
+                                    <span>Available</span>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <span class="badge bg-danger me-2">✗</span>
+                                    <span>Busy (Both)</span>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <span class="badge bg-danger me-2">I</span>
+                                    <span>Ivan Busy</span>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <span class="badge bg-danger me-2">V</span>
+                                    <span>Vlada Busy</span>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-3 mb-2">
+                                    <span class="badge bg-secondary me-2">—</span>
+                                    <span>Past Date</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <p class="text-muted">
+                        <small>Last updated: <span id="lastUpdate"></span></small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="availability-data.js"></script>
+    <script src="calendar.js"></script>
+</body>
+</html>
